@@ -1,8 +1,3 @@
-const nums = [1, 2, 3, 4, 5];
-for (let i = 0; i < nums.length(); i = i + 1) {
-  console.log(zahlen[i] + '-');
-}
-
 /* 
 TODOS: 
 - localStorage
