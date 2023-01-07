@@ -1,10 +1,10 @@
 /* 
 TODOS: 
 - localStorage
-- geonames API o.a. für Orte (anstatt my-json-server)
-- Detail-Ansicht
-- Fahrenheit <-> Celsius
-- Zwischen Ansichten Tabelle vs. Kacheln wechseln
+- View:
+  - Detail-Ansicht
+  - Zwischen Ansichten Tabelle vs. Kacheln wechseln
+  - Fahrenheit <-> Celsius
 - use strict?
 - trim input, avoid duplicates, remove element, usw.
 */
@@ -42,10 +42,13 @@ async function doSearch() {
   const location_name = search_input.value.trim();
   if (location_name.length === 0) return;
 
-  // TODO: Ort nur hinzufügen, wenn Daten gefunden wurden
-  // TODO: Fehlermeldung falls keine Daten gefunden wurden
   // TODO: doppelte Orte vermeiden?
   const location = await searchLocation(location_name);
+  if (location === null) {
+    alert('Ort nicht gefunden');
+    return;
+  }
+
   // TODO: Wetter-Daten für location laden
   const temp = await loadWeatherData(
     location.latitude,
@@ -89,6 +92,7 @@ async function searchLocation(location) {
   const url = `${geoURL}${location}`;
   const data = await fetch(url);
   const json = await data.json();
+  if (!json.results) return null;
   const { name, latitude, longitude } = json.results[0];
   return { name, latitude, longitude };
 }
