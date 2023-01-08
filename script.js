@@ -1,14 +1,14 @@
 /* 
 TODOS: 
-- localStorage
+- localStorage:
   - Ort entfernen
+- doppelte Orte vermeiden (storage, view, Beispiel-Orte)?
 - View:
   - Zwischen Ansichten Tabelle vs. Kacheln wechseln
   - Detail-Ansicht
   - Kachel entsprechend Temperatur einfärben
-- doppelte Orte vermeiden?
+- Suche des Ortes durch Enter-Taste auslösen
 - use strict?
-- trim input, avoid duplicates, remove element, usw.
 */
 const add_btn = document.getElementById('add_btn');
 const search_btn = document.getElementById('search_btn');
@@ -20,6 +20,8 @@ const weather_list = document.getElementById('weather_list');
 
 const weatherURL = `https://api.open-meteo.com/v1/forecast?current_weather=true`;
 const geoURL = `https://geocoding-api.open-meteo.com/v1/search?name=`;
+
+let locationsList = [];
 
 function addLocation(name, temp, condition, image) {
   const new_location = document.createElement('div');
@@ -40,6 +42,17 @@ function addLocation(name, temp, condition, image) {
   weather_list.appendChild(new_location);
 }
 
+function saveLocations(loc) {
+  locationsList.push(loc);
+  localStorage.setItem('locations', JSON.stringify(locationsList));
+}
+
+function loadLocations() {
+  const tmpLocations = localStorage.getItem('locations');
+  if (tmpLocations === null) return;
+  locationsList = JSON.parse(tmpLocations);
+}
+
 async function doSearch() {
   const location_name = search_input.value.trim();
   if (location_name.length === 0) return;
@@ -58,6 +71,8 @@ async function doSearch() {
   const { condition, icon } = weatherCodes.get(weathercode);
   const image = `/img/weather/${icon}.svg`;
   addLocation(location.name, temp, condition, image);
+  const { name, latitude, longitude } = location;
+  saveLocations({ name, latitude, longitude });
   search_input.value = '';
 }
 
@@ -73,6 +88,8 @@ async function doAddFromList() {
   const { condition, icon } = weatherCodes.get(weathercode);
   const image = `/img/weather/${icon}.svg`;
   addLocation(location.name, temp, condition, image);
+  const { name, latitude, longitude } = location;
+  saveLocations({ name, latitude, longitude });
 }
 
 async function loadWeatherData(latitude, longitude) {
@@ -234,4 +251,19 @@ function setupLocationList() {
   });
 }
 
+function setupLocationView() {
+  locationsList.forEach(async (location) => {
+    const { temp, weathercode } = await loadWeatherData(
+      location.latitude,
+      location.longitude
+    );
+
+    const { condition, icon } = weatherCodes.get(weathercode);
+    const image = `/img/weather/${icon}.svg`;
+    addLocation(location.name, temp, condition, image);
+  });
+}
+
 setupLocationList();
+loadLocations();
+setupLocationView();
