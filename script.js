@@ -1,12 +1,12 @@
 /* 
 TODOS: 
 - localStorage
-- View:
-  - Detail-Ansicht
-  - Zwischen Ansichten Tabelle vs. Kacheln wechseln
-  - Fahrenheit <-> Celsius
-  - Kachel entsprechend Temperatur einfärben
   - Ort entfernen
+- View:
+  - Zwischen Ansichten Tabelle vs. Kacheln wechseln
+  - Detail-Ansicht
+  - Kachel entsprechend Temperatur einfärben
+- doppelte Orte vermeiden?
 - use strict?
 - trim input, avoid duplicates, remove element, usw.
 */
@@ -44,7 +44,6 @@ async function doSearch() {
   const location_name = search_input.value.trim();
   if (location_name.length === 0) return;
 
-  // TODO: doppelte Orte vermeiden?
   const location = await searchLocation(location_name);
   if (location === null) {
     alert('Ort nicht gefunden');
@@ -66,7 +65,6 @@ async function doAddFromList() {
   const location_index = selected_location.value;
   const location = locations[location_index];
 
-  // TODO: doppelte Orte vermeiden?
   const { temp, weathercode } = await loadWeatherData(
     location.latitude,
     location.longitude
