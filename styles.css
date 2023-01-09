@@ -2,6 +2,10 @@ body {
   font-family: sans-serif;
 }
 
+.hidden {
+  display: none;
+}
+
 #add_locations {
   margin-bottom: 20px;
 }
@@ -14,14 +18,14 @@ body {
   margin-bottom: 20px;
 }
 
-#weather_tiles {
+.weather_tiles_flex {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 
-.weather_location {
+.weather_location_tile {
   border: 2px solid silver;
   border-radius: 4px;
   padding: 10px;
@@ -30,40 +34,69 @@ body {
   width: 250px;
 }
 
-.location {
+.location_tile {
   display: flex;
   justify-content: space-between;
   font-size: 2em;
   font-weight: bold;
 }
 
-.delete_btn {
+.delete_btn_tile {
   align-self: flex-start;
   display: none;
   width: 16px;
   height: 16px;
 }
 
-.weather_location:hover .delete_btn {
+.weather_location_tile:hover .delete_btn_tile {
   display: block;
   cursor: pointer;
 }
 
-.weather_info {
+.weather_info_tile {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.weather_img {
+.weather_img_tile {
   width: 24px;
   height: 24px;
 }
 
-.temperature {
+.temperature_tile {
   font-weight: 300;
 }
 
-.condition {
+.condition_tile {
   font-style: italic;
+}
+
+.delete_btn_row {
+  display: none;
+  width: 16px;
+  height: 16px;
+}
+
+.weather_location_row:hover .delete_btn_row {
+  display: block;
+  cursor: pointer;
+}
+
+.location_row {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.temperature_row {
+  font-weight: 500;
+}
+
+.condition_row {
+  font-style: italic;
+}
+
+.weather_img_row {
+  width: 24px;
+  height: 24px;
 }

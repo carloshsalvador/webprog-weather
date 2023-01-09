@@ -30,11 +30,6 @@
     <div id="display_locations">
       Darstellung der Orte als
       <label>
-        <input type="radio" name="display_mode" value="table" />
-        Tabelle
-      </label>
-
-      <label>
         <input
           type="radio"
           name="display_mode"
@@ -43,10 +38,14 @@
         />
         Kacheln
       </label>
+      <label>
+        <input type="radio" name="display_mode" value="table" />
+        Tabelle
+      </label>
     </div>
 
-    <div id="weather_table"></div>
-    <div id="weather_tiles"></div>
+    <div id="weather_tiles" class="weather_tiles_flex"></div>
+    <table id="weather_table" class="hidden"></table>
     <script src="script.js"></script>
   </body>
 </html>
