@@ -17,7 +17,7 @@ const selected_location = document.getElementById(
 const display_radio = document.querySelectorAll(
   'input[name="display_mode"]'
 );
-const weather_list = document.getElementById('weather_list');
+const weather_tiles = document.getElementById('weather_tiles');
 
 const weatherURL = `https://api.open-meteo.com/v1/forecast?current_weather=true`;
 const geoURL = `https://geocoding-api.open-meteo.com/v1/search?name=`;
@@ -42,7 +42,7 @@ function addLocation(name, temp, condition, image) {
       />
     </div>
   `;
-  weather_list.appendChild(new_location);
+  weather_tiles.appendChild(new_location);
   new_location
     .querySelector('.delete_btn')
     .addEventListener('click', () => {

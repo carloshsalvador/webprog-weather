@@ -14,7 +14,7 @@ body {
   margin-bottom: 20px;
 }
 
-#weather_list {
+#weather_tiles {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
