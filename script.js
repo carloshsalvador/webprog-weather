@@ -16,6 +16,9 @@ const search_input = document.getElementById('search_input');
 const selected_location = document.getElementById(
   'selected_location'
 );
+const display_radio = document.querySelectorAll(
+  'input[name="display_mode"]'
+);
 const weather_list = document.getElementById('weather_list');
 
 const weatherURL = `https://api.open-meteo.com/v1/forecast?current_weather=true`;
@@ -112,6 +115,14 @@ async function searchLocation(location) {
 
 search_btn.addEventListener('click', doSearch);
 add_btn.addEventListener('click', doAddFromList);
+for (const radioButton of display_radio) {
+  radioButton.addEventListener('change', () => {
+    if (radioButton.value === 'table') {
+      alert('Noch nicht implementiert');
+      radioButton.checked = false;
+    }
+  });
+}
 
 const locations = [
   {
