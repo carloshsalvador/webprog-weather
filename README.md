@@ -13,8 +13,10 @@ wird das aktuelle Wetter aus der [Open-Meteo API](https://open-meteo.com) abgefr
 Die fertige Anwendung kann unter [webprog-weather.vercel.com](https://webprog-weather.vercel.com)
 ausprobiert werden.
 
-Zwischenstände können z.B. auf [glitch](https://www.glitch.com) veröffentlicht 
-und zusätzlich im Moodle-Raum zur Vorlesung hochgeladen werden.
+Der aktuelle Stand des Live-Codings in der Vorlesung kann z.B. auf 
+[replit](https://www.replit.com) via Repository auf GitHub 
+veröffentlicht werden. Einzelne Zwischenstände können zusätzlich 
+im Moodle-Raum zur Vorlesung hochgeladen werden.
 
 Zur Workshop-Vorbereitung sollte diese App (oder ein anderes Beispiel) 
 idealerweise komplett neu entwickelt oder erweitert werden.
