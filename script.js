@@ -6,6 +6,9 @@ TODOS:
   - Detail-Ansicht
   - Kachel entsprechend Temperatur einfärben
 - Suche des Ortes durch Enter-Taste auslösen
+- Laden der Daten:
+  - Orte sofort anzeigen und dann Temp laden
+  - Spinner o.ä. beim Laden anzeigen
 - use strict?
 */
 const add_btn = document.getElementById('add_btn');
