@@ -21,11 +21,14 @@ body {
 .weather_tiles_flex {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: stretch;
   flex-wrap: wrap;
 }
 
 .weather_location_tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 2px solid silver;
   border-radius: 4px;
   padding: 10px;
