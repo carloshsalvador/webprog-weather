@@ -10,8 +10,10 @@ In der App wird eine Liste von Orten erstellt, die lokal im
 `localStorage` des Browsers abgespeichert wird. Für jeden Ort
 wird das aktuelle Wetter aus der [Open-Meteo API](https://open-meteo.com) abgefragt.
 
-Die fertige Anwendung kann unter [webprog-weather.vercel.com](https://webprog-weather.vercel.com)
+Die fertige Anwendung kann unter [webprog-weather.vercel.app](https://webprog-weather.vercel.app)
 ausprobiert werden.
+
+Der Code der App im Cloud-Editor StackBlitz: [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/behrends/webprog-weather)
 
 Der aktuelle Stand des Live-Codings in der Vorlesung kann z.B. auf 
 [replit](https://www.replit.com) via Repository auf GitHub 
