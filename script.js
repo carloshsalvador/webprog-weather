@@ -1,7 +1,10 @@
 /* 
 TODOS: 
 - Ort löschen: in Tabelle UND Kacheln --> Code zusammenfassen
-- doppelte Orte vermeiden? (--> storage, view, drop down der Beispiel-Orte)
+- doppelte Orte vermeiden?
+  - im Speicher und View
+  - Entferne aus Drop-Down nach Hinzufügen
+  - Füge zum Drop-Down nach Entfernen hinzu 
 - View:
   - Detail-Ansicht
   - Kachel entsprechend Temperatur einfärben
