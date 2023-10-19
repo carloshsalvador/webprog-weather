@@ -315,6 +315,7 @@ weatherCodes.set(99, {
 
 function setupLocationList() {
   locations.forEach((location, index) => {
+    if (locationsList.some((l) => l.name === location.name)) return;
     const option = document.createElement('option');
     option.innerHTML = location.name;
     option.setAttribute('value', index);
@@ -335,6 +336,6 @@ function setupLocationView() {
   });
 }
 
-setupLocationList();
 loadLocations();
 setupLocationView();
+setupLocationList();
